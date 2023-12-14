@@ -1,0 +1,23 @@
+# アクション名
+name: Jest
+
+# タイミングを指定
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  Test:
+    name: Run test codes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install and cache nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'yarn'
+      - name: Install packages
+        run: yarn install
+      - name: Show coverage
+        run: yarn jest
