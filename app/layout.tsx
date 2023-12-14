@@ -17,7 +17,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="ja">
+      <head>
+        <link href="/manifest.json" rel="manifest" />
+        <link href="/icon.jpg" rel="apple-touch-icon"></link>
+        <meta content="#4299E1" name="theme-color" />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )
