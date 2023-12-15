@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
+import { SEO_DEFAULT } from "@/utils/seo-config";
 import { Inter } from 'next/font/google'
 
-import { SEO_DEFAULT } from "../utils/seo-config";
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
