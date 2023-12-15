@@ -1,5 +1,6 @@
-import { fireEvent, render, screen } from "@testing-library/react";
-import React, { ReactElement } from 'react';
+import { describe, it } from "@jest/globals";
+import { render } from "@testing-library/react";
+import React from 'react';
 
 import Sample from "../components/Sample"
 
