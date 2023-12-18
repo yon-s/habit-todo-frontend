@@ -1,7 +1,6 @@
 module.exports = {
   extends: [
     'next/core-web-vitals',
-    'plugin:tailwindcss/recommended',
     'plugin:perfectionist/recommended-natural',
     'prettier'
   ],
