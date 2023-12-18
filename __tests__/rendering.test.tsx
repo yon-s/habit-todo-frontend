@@ -5,6 +5,7 @@ import { render,screen} from "@testing-library/react";
 import React from 'react';
 
 import Header from "../components/Header";
+import Main from '../components/Main'
 import MainTitle from "../components/title/MainTitle"
 
 
@@ -14,11 +15,13 @@ declare module "expect" {
 }
 
 describe("Rendering", () => {
-    it("コンポーネントのレンダリングのテスト", async () => {
-      render(<Header />);
-      expect(screen.getByText('Habit Todo')).toBeInTheDocument();
+  it("コンポーネントのレンダリングのテスト", async () => {
+    render(<Header />);
+    // await を使う方法
+    expect(await screen.findByText('Habit Todo')).toBeInTheDocument();
 
-      render(<MainTitle title="TODAY" />);
-      expect(screen.getByText('TODAY')).toBeInTheDocument();
-    });
+    render(<Main><MainTitle title='TODAY'/></Main>);
+    // 同期的な方法
+    expect(await screen.getByText('TODAY')).toBeInTheDocument();
+  });
 });
