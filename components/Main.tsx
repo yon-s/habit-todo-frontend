@@ -10,7 +10,7 @@ const Main: React.FC<MainContentProps> = ({children})=>{
     <main className={css({
       margin: { md: "0 auto" },
       maxWidth: { md: "768px" },
-      p:'28px 28px 20px 28px',
+      p:'30px 28px 96px 28px',
     })}>{children}</main>
   )
 }
