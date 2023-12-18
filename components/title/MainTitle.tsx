@@ -1,9 +1,11 @@
-"use client"
-import { Maintitle } from "@/styles/title"
+import { css } from "@/styled-system/css";
 
 const MainTitle = ({title}:{title:string}) => {
   return(
-    <Maintitle>{title}</Maintitle>
+    <h1 className={css({
+      fontSize: '2.25rem',
+      fontWeight: 'bold',
+    })}>{title}</h1>
   )
 }
 
