@@ -1,14 +1,12 @@
 import type { Metadata } from 'next'
 
+import TypekitLoader from '@/components/TypekitLoader'
+import { css } from "@/styled-system/css";
 import { SEO_DEFAULT } from "@/utils/seo-config";
-import { Inter } from 'next/font/google'
 
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
-
 export const metadata: Metadata = SEO_DEFAULT;
-
 export default function RootLayout({
   children,
 }: {
@@ -24,9 +22,18 @@ export default function RootLayout({
         <meta content="#ffffff" name="theme-color"/>
         <link href="/manifest.json" rel="manifest" />
         <link href="/icon.jpg" rel="apple-touch-icon"></link>
+        <link href={`https://use.typekit.net/${process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID_EN}.css`} rel="stylesheet"></link>
         <meta content="#4299E1" name="theme-color" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <TypekitLoader kitId={process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID_JA || ''} />
+      <body className={css({
+        fontFamily: 'open-sans, hiragino-kaku-gothic-pron, sans-serif ',
+        fontFeatureSettings: 'palt',
+        fontStyle: 'normal',
+        fontWeight: '400',
+      })}>
+        {children}
+      </body>
     </html>
   )
 }

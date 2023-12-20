@@ -4,7 +4,7 @@ const Header = () =>{
   return(
     <header className={css({
       fontSize: '1.25rem',
-      fontWeight: 'bold',
+      fontWeight: '700',
       p:'28px 28px 20px 28px',
     })}>
       Habit Todo
