@@ -27,6 +27,7 @@ export default function RootLayout({
       </head>
       <TypekitLoader kitId={process.env.NEXT_PUBLIC_ADOBE_FONTS_KIT_ID_JA || ''} />
       <body className={css({
+        color: 'text',
         fontFamily: 'open-sans, hiragino-kaku-gothic-pron, sans-serif ',
         fontFeatureSettings: 'palt',
         fontStyle: 'normal',
