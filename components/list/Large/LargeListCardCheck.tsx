@@ -2,11 +2,17 @@ import CheckboxCircle from "@/components/button/CheckboxCircle";
 
 import LargeListCardNext from "./LargeListCardNext";
 
-const LargeListCardCheck = ({
+type Props = {
+  href: string;
+  title: string;
+}
+
+const LargeListCardCheck:React.FC<Props> = ({
+  href,
   title
-}:{title: string}) => {
+}) => {
   return(
-    <LargeListCardNext startIcon={<CheckboxCircle />} title={title} />
+    <LargeListCardNext href={href} startIcon={<CheckboxCircle />} title={title}/>
   )
 }
 

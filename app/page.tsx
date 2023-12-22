@@ -15,7 +15,7 @@ export default function Home() {
       <MainTitle title='TODAY'/>
       <Content>
         {todos.map((todo)=>(
-          <LargeListCardCheck key={todo.id} title={todo.name} />
+          <LargeListCardCheck href={'/' + todo.id} key={todo.id} title={todo.name} />
         ))}
       </Content>
     </>
