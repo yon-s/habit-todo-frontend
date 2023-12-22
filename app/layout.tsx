@@ -1,10 +1,14 @@
 import type { Metadata } from 'next'
 
+import Header from '@/components/Header'
+import Main from '@/components/Main'
+import Nav from '@/components/Nav';
 import TypekitLoader from '@/components/TypekitLoader'
 import { css } from "@/styled-system/css";
 import { SEO_DEFAULT } from "@/utils/seo-config";
 
 import './globals.css'
+
 
 export const metadata: Metadata = SEO_DEFAULT;
 export default function RootLayout({
@@ -33,7 +37,11 @@ export default function RootLayout({
         fontStyle: 'normal',
         fontWeight: '400',
       })}>
-        {children}
+        <Header/>
+        <Main>
+          {children}
+        </Main>
+        <Nav />
       </body>
     </html>
   )

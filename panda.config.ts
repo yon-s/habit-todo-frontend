@@ -1,3 +1,4 @@
+import { width } from "@fortawesome/free-solid-svg-icons/fa0"
 import { defineConfig } from "@pandacss/dev"
 
 export default defineConfig({
@@ -24,7 +25,13 @@ export default defineConfig({
         },
         shadows:{
           toggle: {value: '0px 3px 8px rgba(30,41,59,0.15)'}
-        }
+        },
+        sizes: {
+          maxWidth: { value: '768px'  }
+        },
+        spacing: {
+          bodySide: { value: '28px' }
+        },
       }
     }
   }
