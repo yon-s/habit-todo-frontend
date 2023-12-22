@@ -4,22 +4,18 @@ import { describe, expect, it} from "@jest/globals";
 import "@testing-library/jest-dom";
 import { TestingLibraryMatchers } from "@testing-library/jest-dom/matchers";
 import { render,screen} from "@testing-library/react";
+import { axe } from 'jest-axe';
 import React from 'react';
 
 import Content from '../components/Content'
 import Header from "../components/Header";
 import Main from '../components/Main';
+import Nav from '../components/Nav';
 import LargeListCardCheck from '../components/list/Large/LargeListCardCheck';
 import LargeListCardToggle from '../components/list/Large/LargeListCardToggle';
 import MainTitle from '../components/title/MainTitle';
+import {todos} from '../const/toods';
 
-
-const todos = [
-  {'created_at': '2020/12/20', 'id': 1, 'name': 'テスト1', 'updated_at': '2020/12/20', 'user_id':1},
-  {'created_at': '2020/12/21', 'id': 2, 'name': 'テスト2', 'updated_at': '2020/12/21', 'user_id':2},
-  {'created_at': '2020/12/22', 'id': 3, 'name': 'テスト3', 'updated_at': '2020/12/22', 'user_id':3},
-
-];
 
 declare module "expect" {
   interface Matchers<R extends Promise<void> | void>
@@ -43,5 +39,21 @@ describe("Rendering", () => {
     </Main>);
     // 同期的な方法
     expect(await screen.getByText('TODAY')).toBeInTheDocument();
+  });
+});
+
+describe('Nav Component', () => {
+  it('should render Nav with all links', () => {
+    const { getByRole } = render(<Nav />);
+    const links = getByRole('link', { name: /TODAY|記録|タスク設定|ユーザー/ });
+
+    expect(links).toHaveLength(4);
+  });
+
+  it('should have no accessibility violations', async () => {
+    const { container } = render(<Nav />);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
   });
 });
