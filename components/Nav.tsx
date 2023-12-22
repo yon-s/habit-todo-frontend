@@ -42,7 +42,7 @@ const Nav = () => {
                 flexFlow: 'column',
               })}>
                 <FontAwesomeIcon className={css({
-                   fontSize: '22px',
+                  fontSize: '1.375rem',
                   fontWeight: '900',
                 })} icon={nav.icon} />
                 <div className={css({
