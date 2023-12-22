@@ -5,7 +5,8 @@ const Header = () =>{
     <header className={css({
       fontSize: '1.25rem',
       fontWeight: '700',
-      p:'28px 28px 20px 28px',
+      p:'bodySide',
+      pb:'20px'
     })}>
       Habit Todo
     </header>

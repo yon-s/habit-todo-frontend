@@ -8,9 +8,13 @@ interface MainContentProps {
 const Main: React.FC<MainContentProps> = ({children})=>{
   return(
     <main className={css({
-      margin: { md: "0 auto" },
-      maxWidth: { md: "768px" },
-      p:'30px 28px 96px 28px',
+      margin: { md: '0 auto' },
+      maxWidth: { md: 'maxWidth' },
+      pb:'96px',
+      pl:'bodySide',
+      pr:'bodySide',
+      pt:'30px',
+
     })}>{children}</main>
   )
 }
