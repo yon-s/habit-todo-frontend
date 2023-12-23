@@ -12,6 +12,7 @@ module.exports = {
     '^@/(.*)$': '<rootDir>/$1',
   },
   preset: 'ts-jest/presets/js-with-ts-esm',
+  setupFiles: ['<rootDir>/text-encoder.mock.ts'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.(js|jsx)$': ['babel-jest', { presets: ['next/babel'] }],

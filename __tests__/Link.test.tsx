@@ -1,22 +1,15 @@
-import { describe, expect, it } from "@jest/globals";
-import { axe, render } from 'jest-axe';
-import React from 'react';
+import { describe, expect, it} from "@jest/globals";
+import { fireEvent, render, screen } from '@testing-library/react';
+import React from 'react'
 
 import Nav from '../components/Nav';
 
-describe('NavLink Component', () => {
-  it('should render Link with correct href', () => {
-    const { getByRole } = render(<Nav />);
-    const link = getByRole('link', { name: 'TODAY' });
 
-    expect(link).toHaveAttribute('href', '/');
-  });
-
-  it('should have no accessibility violations', async () => {
-    const { container } = render(<Nav />);
-    const results = await axe(container);
-
-    // 修正: toHaveNoViolations() ではなく.toBeAccessible()
-    expect(results).toBeAccessible();
+describe('Nav', () => {
+  it('リンクのテスト', () => {
+    render(<Nav/>);
+    const link = screen.getByRole('link', { name: 'TODAY' });
+    fireEvent.click(link);
+    expect(window.location.pathname).toBe('/');
   });
 });

@@ -1,17 +1,12 @@
 "use client"
 
+import { navs } from "@/const/navs";
 import { css } from "@/styled-system/css";
-import { faCalendarDays, faCircleUser ,faGear, faList, } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link'
 import { usePathname } from "next/navigation";
 
-const navs = [
-  {'href': '/', 'icon': faList, 'text': 'TODAY'},
-  {'href': '/record', 'icon': faCalendarDays, 'text': '記録'},
-  {'href': '/task-setting', 'icon': faGear, 'text': 'タスク設定'},
-  {'href': '/user', 'icon': faCircleUser, 'text': 'ユーザー'},
-]
+
 const Nav = () => {
   const pathname = usePathname();
   return(
